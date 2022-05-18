@@ -1,0 +1,17 @@
+{
+  "name": "socketiochat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Joe Taylor <joe@textninja.net>",
+  "scripts": {
+    "start": "concurrently 'cd backend && yarn watch' 'cd frontend && yarn dev' 'caddy run'"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.2.0"
+  },
+  "dependencies": {
+    "react-hook-form": "^7.31.1",
+    "sass": "^1.51.0"
+  }
+}

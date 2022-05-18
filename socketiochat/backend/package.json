@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "author": "Joe Taylor <joe@textninja.net>",
+  "license": "MIT",
+  "watch": {
+    "start": {
+      "patterns": ["."],
+      "extensions": "js,html",
+      "quiet": false
+    }
+  },
+  "scripts": {
+    "start": "node index.js",
+    "watch": "npm-watch start"
+  },
+  "dependencies": {
+    "socket.io": "^4.5.0"
+  },
+  "devDependencies": {
+    "npm-watch": "^0.11.0"
+  }
+}

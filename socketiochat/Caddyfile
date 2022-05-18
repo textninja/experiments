@@ -1,0 +1,7 @@
+chat.localhost {
+  reverse_proxy http://localhost:50000
+}
+
+backend.chat.localhost {
+  reverse_proxy http://localhost:50001
+}
