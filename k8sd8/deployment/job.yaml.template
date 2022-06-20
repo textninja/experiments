@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: k8sd8
+  namespace: hellok8s-throwaway
+  labels:
+    app: k8sd8
+spec:
+  template:
+    metadata:
+      name: k8sd8
+      labels:
+        app: k8sd8
+    spec:
+      containers:
+      - name: k8sd8
+        image: ${K8SD8_IMAGE_NAME}:dev
+      restartPolicy: Never

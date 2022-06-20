@@ -1,0 +1,6 @@
+.git
+deployment
+Makefile
+.dockerignore
+.gitignore
+README.md
