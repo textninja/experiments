@@ -1,0 +1,19 @@
+{
+  "name": "k8scron",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Joe Taylor <joe@textninja.net>",
+  "scripts": {
+    "start": "dotenv node index.js",
+    "test": "jest"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/storage": "^6.1.0",
+    "date-fns": "^2.28.0",
+    "dotenv-cli": "^5.1.0"
+  },
+  "devDependencies": {
+    "jest": "^28.1.1"
+  }
+}

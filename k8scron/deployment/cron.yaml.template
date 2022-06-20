@@ -1,0 +1,44 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: hellok8s
+  namespace: hellok8s-throwaway
+  annotations:
+    repo: https://github.com/textninja/experiments/tree/main/k8scron
+spec:
+  schedule: "0 12 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hellok8s
+            image: ${HELLOK8S_DOCKER_IMAGE_NAME}:dev
+            env:
+              - name: HELLOK8S_GOOGLE_PROJECT_ID
+                valueFrom:
+                  secretKeyRef:
+                    name: hellok8s-secrets
+                    key: project
+                    optional: false
+              - name: HELLOK8S_GCS_BUCKET_ID
+                valueFrom:
+                  secretKeyRef:
+                    name: hellok8s-secrets
+                    key: bucket
+                    optional: false
+              - name: GOOGLE_APPLICATION_CREDENTIALS
+                value: /secrets/sa-credentials.json
+            volumeMounts:
+            - name: sa
+              mountPath: /secrets
+          restartPolicy: Never              
+          volumes:
+            - name: sa
+              secret:
+                secretName: service-account
+                optional: false
+                items:
+                - key: hellok8s.json
+                  path: sa-credentials.json
+
